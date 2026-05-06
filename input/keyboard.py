@@ -8,9 +8,9 @@ class KeyboardInput(InputHandler):
         elif key == "s":
             return {"type": "PRESS", "key": "DOWN"}
         elif key == "a":
-            return {"type": "PRESS", "key": "BACK"}
+            return {"type": "PRESS", "key": "CONFIRM"}
         elif key == "d":
-            return {"type": "PRESS", "key": "SELECT"}
+            return {"type": "PRESS", "key": "OPTIONS"}
         elif key == "e":
             return {"type": "PRESS", "key": "MODE"}
         return None
