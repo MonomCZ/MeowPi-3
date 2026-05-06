@@ -1,10 +1,9 @@
 #main.py
 #libraries etc 
-#       keyboard or gpio
-mode = 'keyboard'
-if mode == 'keyboard':
+from config import input_mode as input_mode
+if input_mode == 'keyboard':
     from input.keyboard import get_input as get_input
-#elif mode == 'gpio':
+#elif input_mode == 'gpio':
 #    from input.gpio import  as 
 
 
