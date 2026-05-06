@@ -8,6 +8,7 @@ import os
 import sys
 import subprocess
 import time
+from modes.evil_twin.wifi_options import wifi_ssid
 
 # ── Musíš být root ────────────────────────────────────────────────────────────
 if os.geteuid() != 0:
@@ -17,7 +18,7 @@ if os.geteuid() != 0:
 # ── Konfigurace ───────────────────────────────────────────────────────────────
 IFACE     = "wlan0"
 PORTAL_IP = "192.168.4.1"
-WIFI_SSID = "FREEWIFI"
+WIFI_SSID = wifi_ssid
 
 
 # ── Pomocná funkce pro spouštění příkazů ─────────────────────────────────────
