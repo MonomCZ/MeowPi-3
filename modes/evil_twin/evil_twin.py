@@ -31,7 +31,7 @@ def cmd(prikaz: list, ignoruj_chybu: bool = False):
     return result
 
 
-# ── Krok 1: Zastav konfliktní služby ─────────────────────────────────────────
+# ── Krok 1: Zastav konfliktní služby ─────────────────────────sudo python3 wifi_portal.py────────────────
 def stop_conflicting_services():
     print("\n[1/4] Zastavuji konfliktní služby...")
     cmd(["systemctl", "stop", "wpa_supplicant"],    ignoruj_chybu=True)

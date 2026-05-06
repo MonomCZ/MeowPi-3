@@ -1,4 +1,5 @@
-#keyboard or gpio
+#libraries etc 
+#       keyboard or gpio
 mode = 'keyboard'
 if mode == 'keyboard':
     from input.keyboard import KeyboardInput as InputHandler
@@ -12,9 +13,11 @@ import modes.evil_twin.evil_twin as evil_twin
 running=True
 modes = ['ssh','evil_twin']
 selected_mode = modes[0]
+#code
 
 while running:
     #input check
+    
     
 
 
