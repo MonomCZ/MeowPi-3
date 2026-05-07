@@ -7,17 +7,24 @@ if input_mode == 'keyboard':
 #    from input.gpio import  as 
 
 
-
+from modes.evil_twin.wifi_options import options as evil_twin_options
 #import modes.ssh.ssh as ssh
 #import modes.evil_twin.evil_twin as evil_twin
 #variables
 running=True
+
+tabs = ['modes','options','overview']
+current_tab = 'modes'
+#modes
 modes = ['ssh','evil_twin']
 current_mode = None
 selected_mode_index = 0
 selected_mode = modes[0]
-tabs = ['modes','options','overview']
-current_tab = 'modes'
+#options
+modes_options = [evil_twin_options]
+modes_options_index = 0
+selected_option = 0
+options = []
 #code
 
 while running:
