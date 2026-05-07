@@ -13,6 +13,7 @@ if input_mode == 'keyboard':
 #variables
 running=True
 modes = ['ssh','evil_twin']
+current_mode = None
 selected_mode_index = 0
 selected_mode = modes[0]
 tabs = ['modes','options','overview']
@@ -36,8 +37,19 @@ while running:
     elif action == 'mode':
         if current_tab == 'modes':
             current_tab = 'overview'
-        elif current_tab == 'overview':
+        else:
             current_tab = 'modes'
-    
+    elif action == 'option':
+        if current_tab == 'options':
+            current_tab = 'overview'
+        else:
+            current_tab = 'options'
+    elif action == 'confirm':
+        if current_tab == 'modes':
+            current_mode = selected_mode
+            #print(selected_mode) #debug
+
+
+    action = None
     
 

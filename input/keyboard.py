@@ -1,6 +1,6 @@
 #keyboard.py for testing without rpi or gpio
 def get_input():
-    keypress=input('enter you action:')
+    keypress=input('enter your action:')
     if keypress == 'w' or keypress == 'u':
         return 'up'
     elif keypress == 's' or keypress == 'd':
