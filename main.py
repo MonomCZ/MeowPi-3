@@ -44,7 +44,7 @@ while running:
             current_tab = 'overview'
         else:
             current_tab = 'modes'
-    elif action == 'option':
+    elif action == 'options':
         if current_tab == 'options':
             current_tab = 'overview'
         else:
@@ -52,6 +52,7 @@ while running:
     elif action == 'confirm':
         if current_tab == 'modes':
             current_mode = selected_mode
+            current_tab = 'overview'
             #print(selected_mode) #debug
 
 
