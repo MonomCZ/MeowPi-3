@@ -1,4 +1,5 @@
-#keyboard.py for testing without rpi or gpio
+#keyboard.py 
+#for testing without rpi or gpio
 def get_input():
     keypress=input('enter your action:')
     if keypress == 'w' or keypress == 'u':
