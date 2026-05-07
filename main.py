@@ -1,7 +1,7 @@
 #main.py
 #libraries etc 
 from config import input_mode as input_mode
-import main_functions.funtions as functions
+import main_functions.functions as functions
 if input_mode == 'keyboard':
     from input.keyboard import get_input as get_input
 #elif input_mode == 'gpio':
@@ -32,12 +32,12 @@ while running:
     if action == 'up':
         selected_mode_index = functions.scrolling_list(current_tab, modes, options, selected_mode_index, 1)
         selected_mode = modes[selected_mode_index]
-        #print(selected_mode) #debug
+        print(selected_mode) #debug
 
     elif action == 'down':
         selected_mode_index = functions.scrolling_list(current_tab, modes, options, selected_mode_index, -1)
         selected_mode = modes[selected_mode_index]
-        #print(selected_mode) #debug
+        print(selected_mode) #debug
 
     elif action == 'mode':
         if current_tab == 'modes':
