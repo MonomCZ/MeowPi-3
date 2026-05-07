@@ -1,12 +1,11 @@
 #main.py
 #libraries etc 
 from config import input_mode as input_mode
+import main_functions.funtions as functions
 if input_mode == 'keyboard':
     from input.keyboard import get_input as get_input
 #elif input_mode == 'gpio':
 #    from input.gpio import  as 
-
-
 from modes.evil_twin.wifi_options import options as evil_twin_options
 #import modes.ssh.ssh as ssh
 #import modes.evil_twin.evil_twin as evil_twin
@@ -31,13 +30,12 @@ while running:
     #input check
     action = get_input()
     if action == 'up':
-        selected_mode_index = (selected_mode_index + 1) % len(modes)
+        selected_mode_index = functions.scrolling_list(current_tab, modes, options, selected_mode_index, 1)
         selected_mode = modes[selected_mode_index]
         #print(selected_mode) #debug
 
     elif action == 'down':
-        selected_mode_index -= 1
-        selected_mode_index = (selected_mode_index + 1) % len(modes)
+        selected_mode_index = functions.scrolling_list(current_tab, modes, options, selected_mode_index, -1)
         selected_mode = modes[selected_mode_index]
         #print(selected_mode) #debug
 
