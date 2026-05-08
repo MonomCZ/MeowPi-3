@@ -121,6 +121,10 @@ def press_key(modifier, keycode, device='/dev/hidg0'):
 if __name__ == "__main__":
     setup_gadget()
     #scripts
-    from modes.bad_usb.bad_usb_scripts import notepad_message
+    import importlib
+    from config import used_script
+    scripts_dir=os.path.join(os.path.dirname(__file__), 'bad_usb_scripts')
+
+    module = importlib.import_module(f'modes.bad_usb.bad_usb_scripts.{used_script}')
     
-    notepad_message.run()
+    module.run()
