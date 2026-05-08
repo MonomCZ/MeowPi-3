@@ -74,7 +74,7 @@ def starting_services():
      time.sleep(1)
      #Starting the servecises
      cmd(["systemctl", "unmask", "hostapd"], ignore_error=True) 
-     cmd(["systemclt", "start", "hostapd"])
+     cmd(["systemctl", "start", "hostapd"])
      time.sleep(2)
      cmd(["systemctl", "start", "dnsmasq"])
 
