@@ -1,3 +1,4 @@
+#MUST INSTALL - HOSTAPD and git
 #Imports
 import os 
 import pathlib
