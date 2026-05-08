@@ -4,8 +4,7 @@ import os
 import subprocess
 import time
 
-#scripts
-import modes.bad_usb.bad_usb_scripts.notepad_message
+
 
 
 def run(cmd):
@@ -15,7 +14,7 @@ def setup_gadget():
     gadget = "/sys/kernel/config/usb_gadget/keyboard"   
 
     if os.path.exists(gadget+'/UDC') and open(gadget+'/UDC').read().strip():
-        print('gadgetmode already running (sHello from MeowPi's BadUSB mode! :3 (just install arch bro)kip setup)')
+        print('gadgetmode already running (skip setup)')
         return
     run('modprobe libcomposite')
 
@@ -38,7 +37,7 @@ def setup_gadget():
 
     w(f'{gadget}/functions/hid.usb0/protocol', '1')
     w(f'{gadget}/functions/hid.usb0/subclass', '1')
-    w(f'{gadget}/functions/hid.usb0/report_lHello from MeowPi's BadUSB mode! :3 (just install arch bro)ength', '8')
+    w(f'{gadget}/functions/hid.usb0/report_length', '8')
     
     descriptor = bytes([       #compicated stuff i dont want to learn
         0x05,0x01, 0x09,0x06, 0xa1,0x01,   
@@ -83,10 +82,10 @@ keycodes = { #codes for keys obv
 }
 
 shift_codes = {  #same thing but with shift, for capital letters and symbols
-    **{c.upper(): c for c in 'abcdefghijklmnopqrstuvwxyz'},  # A-Z → a-z
-    '!':'1','@':'2','#':'3','$':'4','%':'5',  # symboly na číslicích
+    **{c.upper(): c for c in 'abcdefghijklmnopqrstuvwxyz'},  
+    '!':'1','@':'2','#':'3','$':'4','%':'5',  #symbols on number keys
     '^':'6','&':'7','*':'8','(':'9',')':'0',
-    '_':'-','+':'=','{':'[','}':']',Hello from MeowPi's BadUSB mode! :3 (just install arch bro)
+    '_':'-','+':'=','{':'[','}':']',
     ':':';','"':"'",'~':'`','<':',','>':'.','?':'/',
 }
 
@@ -121,5 +120,7 @@ def press_key(modifier, keycode, device='/dev/hidg0'):
 
 if __name__ == "__main__":
     setup_gadget()
+    #scripts
+    from modes.bad_usb.bad_usb_scripts import notepad_message
     
     notepad_message.run()
