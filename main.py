@@ -30,7 +30,9 @@ while running:
     #input check
     action = get_input()
     if action == 'up':
-        selected_mode_index = functions.scrolling_list(current_tab, modes, options, selected_mode_index, 1)
+        result = functions.scrolling_list(current_tab, modes, options, selected_mode_index, 1)
+        current_tab = result[0]
+        selected_mode_index = result[1]
         selected_mode = modes[selected_mode_index]
         print(selected_mode) #debug
 
