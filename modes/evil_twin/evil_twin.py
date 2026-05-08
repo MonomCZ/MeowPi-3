@@ -87,14 +87,14 @@ def starting_services():
 
      print("All services are running DNSMASQ ... ON HOSTAPD... ON")
 
-def main():
+def run():
     #Use ALL functions
     stoping_services()
     configureting_intarfeces()
     starting_services()
 
-main()
+run()
 #if __name__ == "__main__":
-#main()
+#run()
 
 
