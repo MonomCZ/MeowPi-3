@@ -32,6 +32,7 @@ def stoping_services():
     print("Step 1 DONE... all services where stoped")
 
 
+<<<<<<< HEAD
 # Step 2 configureting intarfeces
 def configureting_intarfeces():
      print("Configureting intarfeces")
@@ -39,6 +40,18 @@ def configureting_intarfeces():
      cmd (["ip", "addr", "flush", "dev", IFACE], ignore_error=True) # Flush InterFace
      cmd(["ip", "addr", "add", f"{PORTAL_IP}/24", "dev", IFACE], ignore_error=True) # to add IP to InterFace
      print("Step 2 DONE ... Configureting intarfeces was successful")
+=======
+# ── Krok 1: Zastav konfliktní služby ─────────────────────────sudo python3 wifi_portal.py────────────────
+def stop_conflicting_services():
+    print("\n[1/4] Zastavuji konfliktní služby...")
+    cmd(["systemctl", "stop", "wpa_supplicant"],    ignoruj_chybu=True)
+    cmd(["systemctl", "stop", "NetworkManager"],    ignoruj_chybu=True)
+    cmd(["systemctl", "stop", "hostapd"],           ignoruj_chybu=True)
+    cmd(["systemctl", "stop", "dnsmasq"],           ignoruj_chybu=True)
+    cmd(["systemctl", "disable", "wpa_supplicant"], ignoruj_chybu=True)
+    time.sleep(1)
+    print("  ✓ Hotovo")
+>>>>>>> f03167260a5a631d51eafedacb069906621fe15e
 
 
 #Step 3 Rewriting config files (Configuring HOSTAPD and DNSMASQ)
