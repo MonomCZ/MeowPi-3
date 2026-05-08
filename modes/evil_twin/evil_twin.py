@@ -1,4 +1,4 @@
-#MUST INSTALL - HOSTAPD and git
+# MUST INSTALL HOSTAPD DNSMASQ GIT
 #Imports
 import textwrap
 import os 
@@ -95,6 +95,6 @@ def main():
 
 main()
 #if __name__ == "__main__":
-    #main()
+#main()
 
 
