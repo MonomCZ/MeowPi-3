@@ -1,4 +1,5 @@
 #Imports
+import textwrap
 import os 
 import pathlib
 import time 
@@ -42,30 +43,35 @@ def configureting_intarfeces():
 
 
 #Step 3 Rewriting config files (Configuring HOSTAPD and DNSMASQ)
+config_hostapd = textwrap.dedent (f"""\
+     interface={IFACE}
+     driver=nl80211
+     ssid={WIFI_SSID}
+     hw_mode=g
+     channel=6
+     wmm_enabled=0
+     auth_algs=1
+     ignore_broadcast_ssid=0
+""")
+
 def configurating_hostap():
      os.makedirs("/etc/hostapd", exist_ok=True)
      with open("/etc/hostapd/hostapd.conf", "w") as f:
-          f.write(f"""interface={IFACE}
-            driver=nl80211
-            ssid={WIFI_SSID}
-            hw_mode=g
-            channel=6
-            wmm_enabled=0
-            auth_algs=1
-            ignore_broadcast_ssid=0
-            """)
+          f.write(config_hostapd)
+
+config_dnsmasq = textwrap.dedent(f"""\
+     interface={IFACE} 
+     bind-interfaces
+     dhcp-range=192.168.4.10,192.168.4.100,255.255.255.0,12h
+     dhcp-option=3,192.168.4.1
+     dhcp-option=6,192.168.4.1
+     address=/#/192.168.4.1
+     no-resolv  
+ """)
 
 def configurating_dnsmasq():
-     os.makedirs("/etc/dnsmasq", exist_ok=True)
      with open("/etc/dnsmasq.conf", "w") as f:
-          f.write(f"""interface={IFACE} 
-            bind-interfaces
-            dhcp-range=192.168.4.10,192.168.4.100,255.255.255.0,12h
-            dhcp-option=3,192.168.4.1
-            dhcp-option=6,192.168.4.1
-            address=/#/192.168.4.1
-            no-resolv  
-            """)
+          f.write(config_dnsmasq)
 
 def starting_services():
      #Useing definicions to configure.
