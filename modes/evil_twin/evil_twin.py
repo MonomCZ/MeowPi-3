@@ -1,3 +1,4 @@
+#MUST INSTALL - HOSTAPD and git
 #Imports
 import textwrap
 import os 
@@ -92,7 +93,8 @@ def main():
     configureting_intarfeces()
     starting_services()
 
-if __name__ == "__main__":
-     main()
+main()
+#if __name__ == "__main__":
+    #main()
 
 
