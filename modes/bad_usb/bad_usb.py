@@ -6,7 +6,7 @@ import time
 import sys
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../.."))
-sys.path.append(ROOT)
+sys.path.insert(0, ROOT)
 
 
 
@@ -125,9 +125,9 @@ if __name__ == "__main__":
     setup_gadget()
     #scripts
     import importlib
-    from config import used_script
+    import config
     scripts_dir=os.path.join(os.path.dirname(__file__), 'bad_usb_scripts')
 
-    module = importlib.import_module(f'modes.bad_usb.bad_usb_scripts.{used_script}')
+    module = importlib.import_module(f'modes.bad_usb.bad_usb_scripts.{config.used_script}')
     
     module.run()
