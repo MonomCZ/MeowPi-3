@@ -2,7 +2,7 @@ input_mode='keyboard'
 #keyboard or gpio
 
 #bad usb
-used_script = ('notepad_message') #options : notepad_message
+used_script = ('bee_movie_script') #options : notepad_message , bee_movie_script
 used_layout = 'cz' #cz or us
 
 #evil twin
