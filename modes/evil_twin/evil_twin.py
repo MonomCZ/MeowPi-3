@@ -6,7 +6,7 @@ import pathlib
 import time 
 import sys
 import subprocess
-from wifi_options import wifi_ssid
+from config import wifi_ssid
 
 #For comands like stop procesess  -- "systemctl", "stop", "NetworkManager  
 def cmd(comand, ignore_error = False): # ignore_error so the script dont fail if we are trying to turn off a function that isnt even on
