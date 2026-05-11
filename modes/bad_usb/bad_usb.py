@@ -4,6 +4,8 @@ import os
 import subprocess
 import time
 
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../.."))
+sys.path.append(ROOT)
 
 
 
