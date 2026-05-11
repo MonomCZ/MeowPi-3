@@ -3,7 +3,9 @@ input_mode='keyboard'
 
 #bad usb
 used_script = ('notepad_message') #options : notepad_message
+used_layout = 'cz' #cz or us
 
+#evil twin
 wifi_ssid = "Free wifi"
 
 wifi_names = ["Free Wifi", "KFC Wifi", "McDonalds Wifi", "Starbucks Free"]
