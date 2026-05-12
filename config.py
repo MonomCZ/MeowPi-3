@@ -1,7 +1,10 @@
+
+
 input_mode='keyboard'
 #keyboard or gpio
 
 #bad usb
+bad_usb_options = ['change_layout','change_script','start','stop']
 used_script = ('bee_movie_script') #options : notepad_message , bee_movie_script
 used_layout = 'cz' #cz or us
 

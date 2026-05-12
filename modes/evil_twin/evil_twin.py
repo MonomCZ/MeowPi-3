@@ -110,11 +110,11 @@ def main():
     start_portal()
 
 
-main()
+#main()
 
 
-#if __name__ == "__main__":
-#   main()
+if __name__ == "__main__":
+     main()
 
 
 
