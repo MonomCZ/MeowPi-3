@@ -1,6 +1,6 @@
 # MeowPi-3
 
-##Install with:
+Install with:
 ```
 cd ~
 sudo apt install -y git
@@ -8,6 +8,13 @@ git clone https://github.com/MonomCZ/MeowPi-3.git
 cd MeowPi-3
 bash SETUP.sh
 ```
+then run with either
+```
+bash run_bad_usb.sh
+#or
+bash run_evil_twin.sh
+```
+
 
 weird lil thingy
 
