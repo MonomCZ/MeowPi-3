@@ -11,7 +11,7 @@ sudo apt install -y python3-pip python3-venv hostapd dnsmasq
 cd ~/MeowPi-3
 python3 -m venv venv
 source venv/bin/activate
-pip install flask
+venv/bin/pip install flask
 
 #some linux ssh fix
 echo 'export TERM=xterm-256color' >> ~/.bashrc
