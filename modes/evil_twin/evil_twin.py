@@ -17,7 +17,6 @@ def cmd(comand, ignore_error = False): # ignore_error so the script dont fail if
           sys.exit(1)
     return result     
 
-    
 #Configruration
 IFACE = "wlan0"
 PORTAL_IP = "192.168.4.1"
@@ -101,11 +100,14 @@ app = Flask(__name__,)
 @app.route("/", defaults={"path": ""})
 @app.route("/<path:path>")
 def index(path):
-    return "<h1>Welcome to the portal!</h1>"
+    return ""
 
 
 def start_portal():
      app.run(host=PORTAL_IP, port=80)
+
+
+
 
 
 
