@@ -11,7 +11,9 @@ bash SETUP.sh
 then run with either
 ```
 bash run_bad_usb.sh
-#or
+```
+or
+```
 bash run_evil_twin.sh
 ```
 
