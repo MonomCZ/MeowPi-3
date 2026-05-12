@@ -5,7 +5,7 @@ input_mode='keyboard'
 
 #bad usb
 bad_usb_options = ['change_layout','change_script','start','stop']
-used_script = ('bee_movie_script') #options : notepad_message , bee_movie_script
+used_script = ('notepad_message') #options : notepad_message , bee_movie_script
 used_layout = 'cz' #cz or us
 
 #evil twin
