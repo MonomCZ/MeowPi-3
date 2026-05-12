@@ -6,6 +6,7 @@ import pathlib
 import time 
 import sys
 import subprocess
+from flask import Flask, render_template
 from wifi_options import wifi_ssid
 
 #For comands like stop procesess  -- "systemctl", "stop", "NetworkManager  
@@ -34,8 +35,8 @@ def stoping_services():
     print("Step 1 DONE... all services where stoped")
 
 
-# Step 2 configureting intarfeces
-def configureting_intarfeces():
+# Step 2 configuring interfaces
+def configuring_interfaces():
      print("Configureting intarfeces")
      cmd (["ip", "link", "set", IFACE, "up"], ignore_error=True) # Turn on InterFace
      cmd (["ip", "addr", "flush", "dev", IFACE], ignore_error=True) # Flush InterFace
@@ -90,10 +91,26 @@ def starting_services():
 def main():
     #Use ALL functions
     stoping_services()
-    configureting_intarfeces()
+    configuring_interfaces()
     starting_services()
 
 main()
+
+
+app = Flask(__name__,)
+@app.route("/", defaults={"path": ""})
+@app.route("/<path:path>")
+def index(path):
+    return "<h1>Welcome to the portal!</h1>"
+
+
+def start_portal():
+     app.run(host=PORTAL_IP, port=80)
+
+
+
+
+
 #if __name__ == "__main__":
 #main()
 
