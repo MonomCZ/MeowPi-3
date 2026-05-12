@@ -35,4 +35,4 @@ if current_mode == "bad_usb":
                 print(f"Layout changed to {new_layout}!")
         elif current_option == "start":
                 print("Starting bad usb attack...")
-                subprocess.Popen(["bash", "/path/to/run_bad_usb.sh"])
+                subprocess.Popen(["bash", "run_bad_usb.sh"])
