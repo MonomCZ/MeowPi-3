@@ -1,5 +1,5 @@
 #bad_usb.py
-
+import config
 import os
 import subprocess
 import time
@@ -72,7 +72,7 @@ def setup_gadget():
     print('gadgetmode setup complete')
     time.sleep(1) #gives host time to recognize
 
-keycodes = { #codes for keys obv
+keycodes_us = { #codes for keys in us layout obv
     'a':0x04,'b':0x05,'c':0x06,'d':0x07,'e':0x08,'f':0x09,'g':0x0a,
     'h':0x0b,'i':0x0c,'j':0x0d,'k':0x0e,'l':0x0f,'m':0x10,'n':0x11,
     'o':0x12,'p':0x13,'q':0x14,'r':0x15,'s':0x16,'t':0x17,'u':0x18,
@@ -83,14 +83,44 @@ keycodes = { #codes for keys obv
     '-':0x2d,'=':0x2e,'[':0x2f,']':0x30,
     ';':0x33,"'":0x34,'`':0x35,',':0x36,'.':0x37,'/':0x38,
 }
+keycodes_cz = {
+    'a':0x04,'b':0x05,'c':0x06,'d':0x07,'e':0x08,'f':0x09,'g':0x0a,
+    'h':0x0b,'i':0x0c,'j':0x0d,'k':0x0e,'l':0x0f,'m':0x10,'n':0x11,
+    'o':0x12,'p':0x13,'q':0x14,'r':0x15,'s':0x16,'t':0x17,'u':0x18,
+    'v':0x19,'w':0x1a,'x':0x1b,'z':0x1c,'y':0x1d,
+    '+':0x1e,'ě':0x1f,'š':0x20,'č':0x21,'ř':0x22,
+    'ž':0x23,'ý':0x24,'á':0x25,'í':0x26,'é':0x27,
+    'ú':0x2f,')':0x30,'ů':0x33,'§':0x34,';':0x35,',':0x36,'.':0x37,'-':0x38,
+    ' ':0x2c,'\n':0x28,'\t':0x2b,
+}
 
-shift_codes = {  #same thing but with shift, for capital letters and symbols
+
+
+shift_codes_us = {  #same thing but with shift, for capital letters and symbols
     **{c.upper(): c for c in 'abcdefghijklmnopqrstuvwxyz'},  
     '!':'1','@':'2','#':'3','$':'4','%':'5',  #symbols on number keys
     '^':'6','&':'7','*':'8','(':'9',')':'0',
     '_':'-','+':'=','{':'[','}':']',
     ':':';','"':"'",'~':'`','<':',','>':'.','?':'/',
 }
+
+shift_codes_cz = {
+    **{c.upper(): c for c in 'abcdefghijklmnopqrstuvwxyz'},
+    
+    '1':'+','2':'ě','3':'š','4':'č','5':'ř',
+    '6':'ž','7':'ý','8':'á','9':'í','0':'é',
+    
+    '?':',',':':'.','_':'-',
+    '(':'ú','/':')','"':'ů','!':'§',
+}
+
+if config.used_layout == 'us':
+    keycodes = keycodes_us
+    shift_codes = shift_codes_us
+elif config.used_layout == 'cz':
+    keycodes = keycodes_cz
+    shift_codes = shift_codes_cz
+
 
 def type_string(text,delay=0.05, device='/dev/hidg0'):
     with open(device, 'wb') as hid:
@@ -125,7 +155,7 @@ if __name__ == "__main__":
     setup_gadget()
     #scripts
     import importlib
-    import config
+    
     scripts_dir=os.path.join(os.path.dirname(__file__), 'bad_usb_scripts')
 
     module = importlib.import_module(f'modes.bad_usb.bad_usb_scripts.{config.used_script}')
