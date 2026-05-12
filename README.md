@@ -1,14 +1,13 @@
 # MeowPi-3
 
 ##Install with:
-'''
+```
 cd ~
 sudo apt install -y git
 git clone https://github.com/MonomCZ/MeowPi-3.git
 cd MeowPi-3
 bash SETUP.sh
-'''
-
+```
 
 weird lil thingy
 
