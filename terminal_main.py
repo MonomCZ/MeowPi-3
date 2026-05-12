@@ -6,6 +6,7 @@ print("Pick a mode!")
 base = os.path.dirname(__file__)
 mode_options = os.listdir(os.path.join(base, "modes"))
 mode_options.remove("__init__.py")
+mode_options.remove("__pycache__")
 current_index = 0
 for i in mode_options:
     
