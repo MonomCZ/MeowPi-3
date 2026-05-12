@@ -1,3 +1,9 @@
+echo 'Updating MeowPi...'
+cat << 'EOF'
+ /\___/\
+꒰ ˶• ༝ - ˶꒱
+./づᡕᠵ᠊ᡃ࡚ࠢ࠘ ⸝່ࠡࠣ᠊߯᠆ࠣ࠘ᡁࠣ࠘᠊᠊°.~♡︎
+EOF
 git fetch origin
 git reset --hard origin/main
 
