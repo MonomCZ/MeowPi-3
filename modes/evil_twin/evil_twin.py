@@ -1,5 +1,5 @@
 # MUST INSTALL HOSTAPD DNSMASQ GIT
-#Imports
+#IMPORTS 
 from importlib import import_module
 import textwrap
 import config
@@ -97,8 +97,7 @@ app = Flask(__name__, template_folder="captive_portals_options")
 @app.route("/", defaults={"path": ""})
 @app.route("/<path:path>")
 def index(path):
-    return render_template("captive_portal.html")
-
+    return render_template(path)
 
 def start_portal():
      app.run(host="0.0.0.0", port=80)
@@ -111,14 +110,11 @@ def main():
     start_portal()
 
 
+main()
 
 
-
-if __name__ == "__main__":
-
-     scripts_dir=os.path.join(os.path.dirname(__file__), 'bad_usb_scripts')
-     module = import_module(f'modes.evil_twin.captive_portals_options.{config.captive_portal}')
-     main()
+#if __name__ == "__main__":
+#   main()
 
 
 
