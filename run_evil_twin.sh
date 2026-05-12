@@ -4,4 +4,4 @@
 
 
 source venv/bin/activate
-sudo PYTHONPATH=. python3 modes/evil_twin/evil_twin.py
+sudo ~/MeowPi-3/venv/bin/python3 modes/evil_twin/evil_twin.py
