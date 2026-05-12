@@ -23,3 +23,4 @@ sudo sed -i 's/rootwait/rootwait modules-load=dwc2,g_hid/' /boot/firmware/cmdlin
 chmod +x ~/MeowPi-3/run_bad_usb.sh ~/MeowPi-3/run_evil_twin.sh
 
 echo 'MeowPi setup complete!'
+echo 'PLEASE REBOOT!'
