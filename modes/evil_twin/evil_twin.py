@@ -1,12 +1,15 @@
 # MUST INSTALL HOSTAPD DNSMASQ GIT
 #Imports
+from importlib import import_module
 import textwrap
+import config
 import os 
 import pathlib
 import time 
 import sys
 import subprocess
 from flask import Flask, render_template
+
 from wifi_options import wifi_ssid
 
 #For comands like stop procesess  -- "systemctl", "stop", "NetworkManager  
@@ -87,33 +90,37 @@ def starting_services():
 
      print("All services are running DNSMASQ ... ON HOSTAPD... ON")
 
+
+
+
+app = Flask(__name__, template_folder="captive_portals_options")
+@app.route("/", defaults={"path": ""})
+@app.route("/<path:path>")
+def index(path):
+    return render_template("captive_portal.html")
+
+
+def start_portal():
+     app.run(host="0.0.0.0", port=80)
+
 def main():
     #Use ALL functions
     stoping_services()
     configuring_interfaces()
     starting_services()
-
-main()
-
-
-app = Flask(__name__,)
-@app.route("/", defaults={"path": ""})
-@app.route("/<path:path>")
-def index(path):
-    return ""
-
-
-def start_portal():
-     app.run(host=PORTAL_IP, port=80)
+    start_portal()
 
 
 
 
 
+if __name__ == "__main__":
+
+     scripts_dir=os.path.join(os.path.dirname(__file__), 'bad_usb_scripts')
+     module = import_module(f'modes.evil_twin.captive_portals_options.{config.captive_portal}')
+     main()
 
 
 
-#if __name__ == "__main__":
-#main()
 
 
