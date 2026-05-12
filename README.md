@@ -1,6 +1,5 @@
 # MeowPi-3
-
-Install with:
+## on a clean install of **rpi os 32bit lite** Install with:
 ```
 cd ~
 sudo apt install -y git
@@ -16,7 +15,7 @@ or
 ```
 bash run_evil_twin.sh
 ```
-
+#
 
 weird lil thingy
 
