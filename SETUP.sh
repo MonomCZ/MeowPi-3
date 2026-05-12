@@ -1,0 +1,25 @@
+#!/bin/bash
+
+#RUN THIS WITH:
+#bash setup.sh
+
+echo 'Setting up MeowPi!!! :3'
+#downloading and installing dependencies
+sudo apt update
+sudo apt upgrade -y
+sudo apt install -y python3-pip python3-venv hostapd dnsmasq
+cd ~/MeowPi-3
+python3 -m venv venv
+source venv/bin/activate
+pip install flask
+
+#some linux ssh fix
+echo 'export TERM=xterm-256color' >> ~/.bashrc
+#gadget mode (bad_usb) enable
+echo "dtoverlay=dwc2,dr_mode=peripheral" | sudo tee -a /boot/firmware/config.txt
+sudo sed -i 's/rootwait/rootwait modules-load=dwc2,g_hid/' /boot/firmware/cmdline.txt
+
+#giving perms for run files
+chmod +x ~/MeowPi-3/run_bad_usb.sh ~/MeowPi-3/run_evil_twin.sh
+
+echo 'MeowPi setup complete!'
