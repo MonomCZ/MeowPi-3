@@ -1,15 +1,12 @@
 # MUST INSTALL HOSTAPD DNSMASQ GIT
 #IMPORTS 
-from importlib import import_module
 import textwrap
 import config
 import os 
-import pathlib
 import time 
 import sys
 import subprocess
 from flask import Flask, render_template
-
 from wifi_options import wifi_ssid
 
 #For comands like stop procesess  -- "systemctl", "stop", "NetworkManager  
@@ -91,13 +88,14 @@ def starting_services():
      print("All services are running DNSMASQ ... ON HOSTAPD... ON")
 
 
+#100% works till here now we need to start the captive portal and make it work
 
-
-app = Flask(__name__, template_folder="captive_portals_options")
+app = Flask(__name__,template_folder="captive_portals_options")
 @app.route("/", defaults={"path": ""})
 @app.route("/<path:path>")
 def index(path):
-    return render_template(path)
+    return render_template("captive_portal.html")
+
 
 def start_portal():
      app.run(host="0.0.0.0", port=80)
@@ -110,11 +108,11 @@ def main():
     start_portal()
 
 
-main()
+#main()
 
 
-#if __name__ == "__main__":
-#   main()
+if __name__ == "__main__":
+     main()
 
 
 
