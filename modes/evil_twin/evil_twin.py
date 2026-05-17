@@ -86,14 +86,11 @@ def starting_services():
      cmd(["systemctl", "start", "dnsmasq"])
 
      print("All services are running DNSMASQ ... ON HOSTAPD... ON")
-
-
 #100% works till here now we need to start the captive portal and make it work
 
-app = Flask(__name__,template_folder="captive_portals_options")
-@app.route("/", defaults={"path": ""})
-@app.route("/<path:path>")
-def index(path):
+app = Flask(__name__)
+@app.route("/")
+def captive_portal():
     return render_template("captive_portal.html")
 
 
