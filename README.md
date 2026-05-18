@@ -19,7 +19,7 @@ bash run_evil_twin.sh
 
 weird lil thingy
 
-tiny lil device that will do cool shi like being a bad usb or an evil twin attack which is badass i guess
+tiny lil device that will do cool stuff like being a bad usb or an evil twin attack which is badass i guess
 
 ## features
 
