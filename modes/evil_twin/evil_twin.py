@@ -1,7 +1,6 @@
 # MUST INSTALL HOSTAPD DNSMASQ GIT
 #IMPORTS 
 import textwrap
-import config
 import os 
 import time 
 import sys
@@ -61,13 +60,13 @@ def configurating_hostap():
           f.write(config_hostapd)
 
 config_dnsmasq = textwrap.dedent(f"""\
-     interface={IFACE} 
+     interface={IFACE}
      bind-interfaces
      dhcp-range=192.168.4.10,192.168.4.100,255.255.255.0,12h
      dhcp-option=3,192.168.4.1
      dhcp-option=6,192.168.4.1
      address=/#/192.168.4.1
-     no-resolv  
+     no-resolv
  """)
 
 def configurating_dnsmasq():
@@ -88,24 +87,34 @@ def starting_services():
      print("All services are running DNSMASQ ... ON HOSTAPD... ON")
 #100% works till here now we need to start the captive portal and make it work
 
-app = Flask(__name__)
+def setup_iptables():
+    cmd(["iptables", "-t", "nat", "-A", "PREROUTING", "-i", IFACE,
+         "-p", "tcp", "--dport", "80", "-j", "REDIRECT", "--to-port", "80"])
+    cmd(["iptables", "-t", "nat", "-A", "PREROUTING", "-i", IFACE,
+         "-p", "tcp", "--dport", "443", "-j", "REDIRECT", "--to-port", "80"])
+    
+base_dir = os.path.dirname(os.path.abspath(__file__))
+
+app = Flask(__name__, template_folder=os.path.join(base_dir, "templates"))
 @app.route("/")
 def captive_portal():
     return render_template("captive_portal.html")
 
 
 def start_portal():
-     app.run(host="0.0.0.0", port=80)
+     app.run(host="0.0.0.0", port=80, threaded=True)
 
 def main():
     #Use ALL functions
     stoping_services()
     configuring_interfaces()
     starting_services()
+    setup_iptables()
     start_portal()
 
 
 main()
+
 
 
 
