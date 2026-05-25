@@ -24,12 +24,12 @@ tiny lil device that will do cool stuff like being a bad usb or an evil twin att
 ## features
 
 ### implemented:
-- bad usb mode - not tested yet
+- bad usb mode
 
 ### not implemented:
 - ui on an 128x64 oled display controlled by 5 gpio buttons
 - multiple modes and being able to switch in between them
-- ewil twin mode - halfway rn
+- evil twin mode - halfway rn
 - more modes probably
 
 
