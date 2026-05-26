@@ -15,6 +15,11 @@ image = Image.new("1", (WIDTH, HEIGHT))
 draw = ImageDraw.Draw(image)
 
 draw.text((0, 0), "Hello World!", fill=255)
+draw.text((0, 16), "This is a test.", fill=255)
+draw.text((0, 32), "Another line.", fill=255)
+draw.text((0, 48), "Last line.", fill=255)
+draw.rectangle((0, 0, WIDTH-1, HEIGHT-1), outline=255, fill=0)
+
 
 oled.image(image)
 oled.show()
