@@ -33,12 +33,12 @@ echo 'Setting up MeowPi!!! :3'
 #downloading and installing dependencies
 sudo apt update
 sudo apt upgrade -y
-sudo apt install -y python3-pip python3-venv hostapd dnsmasq python3-pil i2c-tools
+sudo apt install -y python3-flask python3-pip python3-venv hostapd dnsmasq python3-pil i2c-tools
 cd ~/MeowPi-3
-python3 -m venv venv
-source venv/bin/activate
-pip install flask adafruit-blinka adafruit-circuitpython-ssd1306
 
+
+
+pip3 install --break-system-packages adafruit-blinka adafruit-circuitpython-ssd1306
 
 #some linux ssh fix
 grep -qxF 'export TERM=xterm-256color' ~/.bashrc || echo 'export TERM=xterm-256color' >> ~/.bashrc
