@@ -46,13 +46,13 @@ while True:
         time.sleep(blink_timer)
         ascii_art = default_eyes
         blinking = False
-        no_blinking_timer = random.randint(0.5, 3)
+        no_blinking_timer = random.uniform(0.5, 3)
 
     if not blinking:
         time.sleep(no_blinking_timer)
         ascii_art = random.choice(faces)
         blinking=True
-        blink_timer = random.randint(0.1, 1)
+        blink_timer = random.uniform(0.1, 1)
 
 
     oled.fill(0)
