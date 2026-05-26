@@ -17,11 +17,19 @@ image = Image.new("1", (WIDTH, HEIGHT))
 draw = ImageDraw.Draw(image)
 
 number=1
+
+ascii_art = """\
+ /\_/\  
+( o.o ) 
+ > ^ <  """
+
 while True:
     draw.rectangle((0, 0, WIDTH, HEIGHT), outline=0, fill=0)  # clear image
-    draw.text((0, 0), str(number), fill=255)
-    number*=2
-    time.sleep(1)
+
+    y = 0
+    for line in ascii_art.split("\n"):
+        draw.text((0, y), line, fill=255)
+        y += 8
 
     oled.fill(0)
     oled.image(image)
