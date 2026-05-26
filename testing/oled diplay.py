@@ -7,7 +7,7 @@ import time
 
 WIDTH = 128
 HEIGHT = 64
-font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf", 40)
+font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf", 20)
 
 
 i2c = busio.I2C(board.SCL, board.SDA)
