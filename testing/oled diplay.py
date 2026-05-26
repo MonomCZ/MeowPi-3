@@ -22,8 +22,6 @@ while True:
     number+=1
     time.sleep(1)
 
-
-
-
+    oled.fill(0)
     oled.image(image)
     oled.show()
