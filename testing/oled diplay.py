@@ -19,6 +19,7 @@ oled.show()
 image = Image.new("1", (WIDTH, HEIGHT))
 draw = ImageDraw.Draw(image)
 blinking = False
+no_blinking_timer = 1
 number=1
 
 default_eyes = """\
