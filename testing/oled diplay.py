@@ -20,8 +20,8 @@ number=1
 while True:
     draw.rectangle((0, 0, WIDTH, HEIGHT), outline=0, fill=0)  # clear image
     draw.text((0, 0), str(number), fill=255)
-    number+=1
-    time.sleep(0.0001)
+    number*=2
+    time.sleep(1)
 
     oled.fill(0)
     oled.image(image)
