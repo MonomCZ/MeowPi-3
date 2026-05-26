@@ -19,11 +19,7 @@ draw = ImageDraw.Draw(image)
 number=1
 
 ascii_art = """\
-   ╱|、
- (˚ˎ 。7  
- |、˜〵          
- じしˍ,)ノ
-"""
+  (=ↀωↀ=) """
 
 while True:
     draw.rectangle((0, 0, WIDTH, HEIGHT), outline=0, fill=0)  # clear image
