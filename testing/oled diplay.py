@@ -37,14 +37,12 @@ ascii_art = default_eyes
 while True:
     draw.rectangle((0, 0, WIDTH, HEIGHT), outline=0, fill=0)  # clear image
 
-    y = 0
-    for line in ascii_art.split("\n"):
-        draw.text((0, y), line, fill=255, font=font)
-        y += 8
+
 
     if blinking:
         time.sleep(blink_timer)
         ascii_art = default_eyes
+
         blinking = False
         no_blinking_timer = random.uniform(0.5, 3)
 
@@ -54,7 +52,10 @@ while True:
         blinking=True
         blink_timer = random.uniform(0.1, 1)
 
+        y = 0
+    for line in ascii_art.split("\n"):
+        draw.text((0, y), line, fill=255, font=font)
+        y += 8
 
-    oled.fill(0)
     oled.image(image)
     oled.show()
