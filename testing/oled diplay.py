@@ -14,12 +14,14 @@ oled.show()
 image = Image.new("1", (WIDTH, HEIGHT))
 draw = ImageDraw.Draw(image)
 
-draw.text((0, 0), "Hello World!", fill=255)
-draw.text((0, 16), "This is a test.", fill=255)
-draw.text((0, 32), "Another line.", fill=255)
-draw.text((0, 48), "Last line.", fill=255)
+number=1
+while true:
+
+    draw.text((0, 0), number, fill=255)
+    number+=1
 
 
 
-oled.image(image)
-oled.show()
+
+    oled.image(image)
+    oled.show()
