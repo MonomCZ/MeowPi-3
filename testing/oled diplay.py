@@ -17,7 +17,7 @@ draw = ImageDraw.Draw(image)
 number=1
 while True:
 
-    draw.text((0, 0), str(number), fill=255)
+    draw.text((0, 0), '12345', fill=255)
     number+=1
 
 
