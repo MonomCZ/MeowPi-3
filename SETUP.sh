@@ -33,14 +33,15 @@ echo 'Setting up MeowPi!!! :3'
 #downloading and installing dependencies
 sudo apt update
 sudo apt upgrade -y
-sudo apt install -y python3-pip python3-venv hostapd dnsmasq
+sudo apt install -y python3-pip python3-venv hostapd dnsmasq python3-pil i2c-tools
 cd ~/MeowPi-3
 python3 -m venv venv
 source venv/bin/activate
-venv/bin/pip install flask
+pip install flask adafruit-blinka adafruit-circuitpython-ssd1306
+
 
 #some linux ssh fix
-echo 'export TERM=xterm-256color' >> ~/.bashrc
+grep -qxF 'export TERM=xterm-256color' ~/.bashrc || echo 'export TERM=xterm-256color' >> ~/.bashrc
 #gadget mode (bad_usb) enable
 echo "dtoverlay=dwc2,dr_mode=peripheral" | sudo tee -a /boot/firmware/config.txt
 sudo sed -i 's/rootwait/rootwait modules-load=dwc2,g_hid/' /boot/firmware/cmdline.txt
