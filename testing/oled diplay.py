@@ -2,6 +2,7 @@ from PIL import Image, ImageDraw
 import board
 import busio
 import adafruit_ssd1306
+import time
 
 WIDTH = 128
 HEIGHT = 64
@@ -17,8 +18,9 @@ draw = ImageDraw.Draw(image)
 number=1
 while True:
 
-    draw.text((0, 0), '12345', fill=255)
+    draw.text((0, 0), str(number), fill=255)
     number+=1
+    time.sleep(1)
 
 
 
