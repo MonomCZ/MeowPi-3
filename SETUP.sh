@@ -44,7 +44,7 @@ pip3 install --break-system-packages adafruit-blinka adafruit-circuitpython-ssd1
 #some linux ssh fix
 grep -qxF 'export TERM=xterm-256color' ~/.bashrc || echo 'export TERM=xterm-256color' >> ~/.bashrc
 #gadget mode (bad_usb) enable
-read -p "Do you want to enable gadget mode (this is required for badusb but any external USB devices like a keyboard won't work)? (y/n) " answer
+read -p "Do you want to enable gadget mode (this is required for badusb but any external USB devices like a keyboard won't work)? (y/n): " answer
 if [[ "$answer" == "y" ]]; then 
     echo "enabling gadget mode!"
     echo "dtoverlay=dwc2,dr_mode=peripheral" | sudo tee -a /boot/firmware/config.txt
