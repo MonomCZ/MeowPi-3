@@ -30,7 +30,7 @@ blink_right_eye = """
   (=ↀω~=) """
 blink_both_eyes = """
   (=~ω~=) """
-faces=[blink_left_eye,blink_right_eye,blink_both_eyes,blink_both_eyes,blink_both_eyes]
+faces=[blink_left_eye,blink_right_eye,blink_both_eyes,blink_both_eyes]
 
 ascii_art = default_eyes
 
@@ -41,7 +41,7 @@ while True:
         time.sleep(no_blinking_timer)
         ascii_art = random.choice(faces)
         blinking=True
-        blink_timer = random.uniform(0.1, 1)
+        blink_timer = random.uniform(0.1, 0.5)
 
     elif blinking:
         time.sleep(blink_timer)
