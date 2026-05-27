@@ -25,11 +25,11 @@ number=1
 default_eyes = """
   (=ↀωↀ=) """
 blink_left_eye = """
-  (=~_ↀ=) """
+  (=~ωↀ=) """
 blink_right_eye = """
-  (=ↀ_~=) """
+  (=ↀω~=) """
 blink_both_eyes = """
-  (=~_~=) """
+  (=~ω~=) """
 faces=[blink_left_eye,blink_right_eye,blink_both_eyes]
 
 ascii_art = default_eyes
