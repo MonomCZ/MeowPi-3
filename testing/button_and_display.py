@@ -9,7 +9,7 @@ import input.gpio_input as gpio_input
 
 WIDTH = 128
 HEIGHT = 64
-font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf", 20)
+font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf", 15)
 
 number=1
 
@@ -21,14 +21,14 @@ number=1
 image = Image.new("1", (WIDTH, HEIGHT))
 draw = ImageDraw.Draw(image)
 
-draw.text((0, 0), 'press the button', fill=255, )
+draw.text((0, 0), 'press the button 11 times!', fill=255, )
 oled.image(image)
 oled.show()
 
 while True:
     draw.rectangle((0, 0, WIDTH, HEIGHT), fill=0)
     if number > 11:
-        draw.text((0, 12), 'Bangaranga!', fill=255, font=font)
+        draw.text((0, 12), 'Good Boyy~', fill=255, font=font)
         time.sleep(0.00001)
         number=0
 
