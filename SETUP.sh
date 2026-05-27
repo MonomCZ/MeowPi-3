@@ -44,8 +44,20 @@ pip3 install --break-system-packages adafruit-blinka adafruit-circuitpython-ssd1
 #some linux ssh fix
 grep -qxF 'export TERM=xterm-256color' ~/.bashrc || echo 'export TERM=xterm-256color' >> ~/.bashrc
 #gadget mode (bad_usb) enable
-echo "dtoverlay=dwc2,dr_mode=peripheral" | sudo tee -a /boot/firmware/config.txt
-sudo sed -i 's/rootwait/rootwait modules-load=dwc2,g_hid/' /boot/firmware/cmdline.txt
+read -p "Do you want to enable gadget mode (this is required for badusb but any external USB deivec like a keyboard won't work)? (y/n) " answer
+if [[ "$answer" == "y" ]]; then 
+    echo "enabling gadget mode!"
+    echo "dtoverlay=dwc2,dr_mode=peripheral" | sudo tee -a /boot/firmware/config.txt
+    sudo sed -i 's/rootwait/rootwait modules-load=dwc2,g_hid/' /boot/firmware/cmdline.txt
+ else
+    echo "bad usb mode will NOT work"
+    echo "bad usb mode will NOT work"
+    echo "bad usb mode will NOT work"
+    echo "bad usb mode will NOT work"
+    echo "bad usb mode will NOT work"
+    sleep 5
+fi
+
 
 
 sudo raspi-config nonint do_i2c 0
