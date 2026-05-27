@@ -34,6 +34,7 @@ while True:
 
     elif number==0:
         if gpio_input.button1():
+            number+=1
             draw.text((0, 0), 'press the button 11 times!', fill=255,)
     else:
         if not number==11:
