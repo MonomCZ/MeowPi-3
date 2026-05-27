@@ -37,7 +37,11 @@ ascii_art = default_eyes
 while True:
     draw.rectangle((0, 0, WIDTH, HEIGHT), outline=0, fill=0)  # clear image
 
-
+    if not blinking:
+        time.sleep(no_blinking_timer)
+        ascii_art = random.choice(faces)
+        blinking=True
+        blink_timer = random.uniform(0.1, 1)
 
     if blinking:
         time.sleep(blink_timer)
@@ -46,13 +50,9 @@ while True:
         blinking = False
         no_blinking_timer = random.uniform(0.5, 3)
 
-    if not blinking:
-        time.sleep(no_blinking_timer)
-        ascii_art = random.choice(faces)
-        blinking=True
-        blink_timer = random.uniform(0.1, 1)
 
-        y = 0
+
+    y = 0
     for line in ascii_art.split("\n"):
         draw.text((0, y), line, fill=255, font=font)
         y += 8
