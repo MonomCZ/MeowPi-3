@@ -46,6 +46,8 @@ grep -qxF 'export TERM=xterm-256color' ~/.bashrc || echo 'export TERM=xterm-256c
 echo "dtoverlay=dwc2,dr_mode=peripheral" | sudo tee -a /boot/firmware/config.txt
 sudo sed -i 's/rootwait/rootwait modules-load=dwc2,g_hid/' /boot/firmware/cmdline.txt
 
+
+sudo raspi-config nonint do_i2c 1
 #giving perms for run files
 chmod +x ~/MeowPi-3/run_bad_usb.sh ~/MeowPi-3/run_evil_twin.sh
 
