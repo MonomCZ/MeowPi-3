@@ -8,7 +8,7 @@ import random
 
 WIDTH = 128
 HEIGHT = 64
-font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf", 20)
+font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf", 6)
 
 
 i2c = busio.I2C(board.SCL, board.SDA)
@@ -19,7 +19,17 @@ oled.show()
 image = Image.new("1", (WIDTH, HEIGHT))
 draw = ImageDraw.Draw(image)
 
-draw.text((0, 0), "Bangaranga!", font=font, fill=255)
+ascii_art = """\
+ ╱|、
+(˚ˎ 。7
+|、˜〵        
+じしˍ,)ノ
+   """
+
+for line in ascii_art.split("\n"):
+        draw.text((0, y), line, fill=255, font=font)
+        y += 8
+
 
 oled.image(image)
 oled.show()
