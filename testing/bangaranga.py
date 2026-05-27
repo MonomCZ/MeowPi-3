@@ -15,7 +15,7 @@ i2c = busio.I2C(board.SCL, board.SDA)
 oled = adafruit_ssd1306.SSD1306_I2C(WIDTH, HEIGHT, i2c)
 oled.fill(0)
 oled.show()
-
+y=0
 image = Image.new("1", (WIDTH, HEIGHT))
 draw = ImageDraw.Draw(image)
 
