@@ -22,7 +22,7 @@ blinking = False
 no_blinking_timer = 1
 number=1
 
-default_eyes = """\
+default_eyes = """
   (=ↀωↀ=) """
 blink_left_eye = """
   (=~_ↀ=) """
@@ -52,7 +52,7 @@ while True:
 
 
 
-    y = 0
+    y =  10
     for line in ascii_art.split("\n"):
         draw.text((0, y), line, fill=255, font=font)
         y += 8
