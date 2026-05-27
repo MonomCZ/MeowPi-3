@@ -24,7 +24,7 @@ draw = ImageDraw.Draw(image)
 
 while True:
     draw.rectangle((0, 0, WIDTH, HEIGHT), fill=0)
-    if number > 10:
+    if number > 11:
         draw.text((0, 0), 'Bangaranga!', fill=255, font=font)
         time.sleep(0.00001)
         number=0
