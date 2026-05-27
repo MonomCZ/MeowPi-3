@@ -36,7 +36,8 @@ sudo apt upgrade -y
 sudo apt install -y python3-flask python3-pip python3-venv hostapd dnsmasq python3-pil i2c-tools fonts-dejavu
 cd ~/MeowPi-3
 
-
+echo 'export PYTHONPATH=$PYTHONPATH:~/MeowPi-3' >> ~/.bashrc
+source ~/.bashrc
 
 pip3 install --break-system-packages adafruit-blinka adafruit-circuitpython-ssd1306
 
