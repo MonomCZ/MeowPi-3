@@ -28,13 +28,13 @@ oled.show()
 while True:
     draw.rectangle((0, 0, WIDTH, HEIGHT), fill=0)
     if number > 11:
-        draw.text((0, 12), 'Good Boyy~', fill=255, font=font)
+        draw.text((0, 15), 'Good Boyy~', fill=255, font=font)
         time.sleep(0.00001)
         number=0
 
     else:
         if not number==11:
-            draw.text((0, 12), str(number), fill=255, font=font)
+            draw.text((0, 15), str(number), fill=255, font=font)
         time.sleep(0.1)
         if gpio_input.button1():
             number+=1
