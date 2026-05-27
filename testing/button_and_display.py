@@ -27,7 +27,6 @@ while True:
     draw.text((0, 0), str(number), fill=255, font=font)
     time.sleep(0.2)
     if gpio_input.button1():
-        print("Button 1 pressed")
         number+=1
 
     oled.image(image)
