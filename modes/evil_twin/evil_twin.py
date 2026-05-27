@@ -92,14 +92,12 @@ def setup_iptables():
     # Cisteni predchozich pravidel nat tabulky
     cmd(["iptables", "-t", "nat", "-F"], ignore_error=True)
     
-    # OPRAVA: Smerujeme POUZE port 80 (HTTP). Port 443 nesmerujeme, aby Flask nedostaval binarni TLS data.
     cmd(["iptables", "-t", "nat", "-A", "PREROUTING", "-i", IFACE,
          "-p", "tcp", "--dport", "80", "-j", "REDIRECT", "--to-port", "80"])
 
 base_dir = os.path.dirname(os.path.abspath(__file__))
 app = Flask(__name__, template_folder=os.path.join(base_dir, "templates"))
 
-# OPRAVA: Pridana Catch-All routa, ktera odchyti jakoukoliv HTTP adresu (napr. /generate_204)
 @app.route("/", defaults={"path": ""})
 @app.route("/<path:path>")
 def captive_portal(path):
