@@ -25,11 +25,13 @@ draw = ImageDraw.Draw(image)
 while True:
     draw.rectangle((0, 0, WIDTH, HEIGHT), fill=0)
     if number > 10:
-        number='Bangaranga!'
-    draw.text((0, 0), str(number), fill=255, font=font)
-    time.sleep(0.2)
-    if gpio_input.button1():
-        number+=1
+        draw.text((0, 0), 'Bangaranga!', fill=255, font=font)
+
+    else:
+        draw.text((0, 0), str(number), fill=255, font=font)
+        time.sleep(0.2)
+        if gpio_input.button1():
+            number+=1
 
     oled.image(image)
     oled.show()
