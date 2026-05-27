@@ -29,8 +29,5 @@ while True:
         print("Button 1 pressed")
         number+=1
 
-
-
-
-oled.image(image)
-oled.show()
+    oled.image(image)
+    oled.show()
