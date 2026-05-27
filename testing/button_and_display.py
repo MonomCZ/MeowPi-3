@@ -35,7 +35,7 @@ while True:
     else:
         if not number==11:
             draw.text((0, 0), str(number), fill=255, font=font)
-        time.sleep(0.2)
+        time.sleep(0.1)
         if gpio_input.button1():
             number+=1
 
