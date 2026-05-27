@@ -26,6 +26,8 @@ while True:
     draw.rectangle((0, 0, WIDTH, HEIGHT), fill=0)
     if number > 10:
         draw.text((0, 0), 'Bangaranga!', fill=255, font=font)
+        time.sleep(5)
+        number=0
 
     else:
         draw.text((0, 0), str(number), fill=255, font=font)
