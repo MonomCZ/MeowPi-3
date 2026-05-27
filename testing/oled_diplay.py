@@ -43,7 +43,7 @@ while True:
         blinking=True
         blink_timer = random.uniform(0.1, 1)
 
-    if blinking:
+    elif blinking:
         time.sleep(blink_timer)
         ascii_art = default_eyes
 
