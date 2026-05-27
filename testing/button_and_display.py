@@ -32,6 +32,8 @@ while True:
         time.sleep(0.00001)
         number=0
 
+    elif number==0:
+        draw.text((0, 15), 'press the button 11 times!', fill=255, font=font)
     else:
         if not number==11:
             draw.text((0, 15), str(number), fill=255, font=font)
