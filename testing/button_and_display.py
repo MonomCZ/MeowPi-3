@@ -33,7 +33,8 @@ while True:
         number=0
 
     elif number==0:
-        draw.text((0, 15), 'press the button 11 times!', fill=255, font=font)
+        if gpio_input.button1():
+            draw.text((0, 0), 'press the button 11 times!', fill=255,)
     else:
         if not number==11:
             draw.text((0, 15), str(number), fill=255, font=font)
