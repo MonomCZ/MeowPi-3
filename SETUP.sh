@@ -33,7 +33,7 @@ echo 'Setting up MeowPi!!! :3'
 #downloading and installing dependencies
 sudo apt update
 sudo apt upgrade -y
-sudo apt install -y python3-flask python3-pip python3-venv hostapd dnsmasq python3-pil i2c-tools
+sudo apt install -y python3-flask python3-pip python3-venv hostapd dnsmasq python3-pil i2c-tools fonts-dejavu
 cd ~/MeowPi-3
 
 
