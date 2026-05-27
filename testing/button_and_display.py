@@ -21,6 +21,9 @@ number=1
 image = Image.new("1", (WIDTH, HEIGHT))
 draw = ImageDraw.Draw(image)
 
+draw.text((0, 0), 'press the button', fill=255, )
+oled.image(image)
+oled.show()
 
 while True:
     draw.rectangle((0, 0, WIDTH, HEIGHT), fill=0)
