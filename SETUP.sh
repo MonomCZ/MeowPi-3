@@ -33,10 +33,11 @@ echo 'Setting up MeowPi!!! :3'
 #downloading and installing dependencies
 sudo apt update
 sudo apt upgrade -y
-sudo apt install -y python3-flask python3-pip python3-venv hostapd dnsmasq python3-pil i2c-tools
+sudo apt install -y python3-flask python3-pip python3-venv hostapd dnsmasq python3-pil i2c-tools fonts-dejavu
 cd ~/MeowPi-3
 
-
+echo 'export PYTHONPATH=$PYTHONPATH:~/MeowPi-3' >> ~/.bashrc
+source ~/.bashrc
 
 pip3 install --break-system-packages adafruit-blinka adafruit-circuitpython-ssd1306
 
@@ -46,6 +47,8 @@ grep -qxF 'export TERM=xterm-256color' ~/.bashrc || echo 'export TERM=xterm-256c
 echo "dtoverlay=dwc2,dr_mode=peripheral" | sudo tee -a /boot/firmware/config.txt
 sudo sed -i 's/rootwait/rootwait modules-load=dwc2,g_hid/' /boot/firmware/cmdline.txt
 
+
+sudo raspi-config nonint do_i2c 0
 #giving perms for run files
 chmod +x ~/MeowPi-3/run_bad_usb.sh ~/MeowPi-3/run_evil_twin.sh
 
