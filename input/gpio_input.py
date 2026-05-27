@@ -9,5 +9,5 @@ def button1():
     while True:
         if GPIO.input(btn1) == 1:
             return True
-            break
+            
         
