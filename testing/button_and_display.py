@@ -24,7 +24,7 @@ draw = ImageDraw.Draw(image)
 
 while True:
     draw.rectangle((0, 0, WIDTH, HEIGHT), fill=0)
-    draw.text((0, 0), number, fill=255, font=font)
+    draw.text((0, 0), str(number), fill=255, font=font)
     if gpio_input.button1():
         number+=1
 
