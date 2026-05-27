@@ -85,7 +85,7 @@ def starting_services():
      cmd(["systemctl", "start", "dnsmasq"])
 
      print("All services are running DNSMASQ ... ON HOSTAPD... ON")
-#100% works till here now we need to start the captive portal and make it work
+#100% works 
 
 def setup_iptables():
     print("Setting up iptables rules...")
@@ -117,3 +117,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+#Captive portal is working...
