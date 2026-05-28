@@ -1,5 +1,6 @@
 import ui.ui as ui
 import time
+import config as config
 
 ui.clear()
 
@@ -16,3 +17,4 @@ ui.display_text("press to switch the mode", 40)
 
 ui.display_temperature()
 
+ui.display_text(config.used_script, 0)

@@ -40,5 +40,4 @@ def display_temperature():
     output = subprocess.check_output(["vcgencmd", "measure_temp"]).decode().strip()
     output = str.replace(output, "temp=", "                                                ")
     output = str.replace(output, "'", "°")
-    print(output)
     display_text(output, 0)
