@@ -38,7 +38,12 @@ while True:
         press=True
         sleep(0.8)
         if gpio_input.button1():
-        
+            press=False
+            hold=True
+    
+    if press:
+        config.bad_usb_scripts_index =(config.bad_usb_scripts_index+1) %len(config.bad_usb_scripts)
+        config.used_script = config.bad_usb_scripts[config.bad_usb_scripts_index]
 
         
 
