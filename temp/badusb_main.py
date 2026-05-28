@@ -14,7 +14,7 @@ ui.display_text("hold the button to start ^the attack", 20)
 
 ui.display_text("and press it to switch the ^current mode", 40)
 output = subprocess.check_output(["vcgencmd", "measure_temp"]).decode().strip()
-output = str.replace(output, "temp=", "")
+output = str.replace(output, "temp=", "        ")
 print(output)
 ui.display_text(output, 0)
 
