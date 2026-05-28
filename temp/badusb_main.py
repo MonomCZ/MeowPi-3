@@ -68,7 +68,7 @@ while True:
 
             module = importlib.import_module(f'modes.bad_usb.bad_usb_scripts.{config.used_script}')
             
-            module.bad_usb.run()
+            module.run()
             print("bad usb running")
 
         
