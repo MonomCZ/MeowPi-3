@@ -16,8 +16,17 @@ oled.show()
 image = Image.new("1", (WIDTH, HEIGHT))
 draw = ImageDraw.Draw(image)
 
+# the display fits 21 character per line
+
 def display_text(text,y):
-    draw.text((0, y), text, fill=255, )
+# ^ means next line
+    if "^" in text:
+        text.split("^")
+        for i in range(len(text.split("^"))):
+            draw.text((0, y + (i*10)), text.split("^")[i], fill=255)
+
+        str.replace(text, "^", "")
+
     oled.image(image)
     oled.show()
 
