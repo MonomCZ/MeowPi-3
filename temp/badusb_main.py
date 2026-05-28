@@ -35,9 +35,12 @@ while True:
         displayed_used_script+="..."
 
     press=False
-    hold=False
+    
     ui.display_text(displayed_used_script, 0)
-    if gpio_input.button1():
+    if hold:
+        hold=False
+        sleep(0.2)
+    elif gpio_input.button1():
         time.sleep(0.2)
         press=True
         print("pressed")
