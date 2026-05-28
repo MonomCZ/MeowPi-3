@@ -46,7 +46,7 @@ while True:
             print("held")
     
     if press:
-        print("pressed")
+        print("pressed registered")
         config.bad_usb_scripts_index =(config.bad_usb_scripts_index+1) %len(config.bad_usb_scripts)
         config.used_script = config.bad_usb_scripts[config.bad_usb_scripts_index]
 
