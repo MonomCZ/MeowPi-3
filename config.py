@@ -5,7 +5,7 @@ input_mode='keyboard'
 
 #bad usb
 bad_usb_options = ['change_layout','change_script','start','stop']
-bad_usb_scripts = os.listdir(os.path.expanduser('~/MeowPi-3/modes/bad_usb/bad_usb_scripts/'))
+#bad_usb_scripts = os.listdir(os.path.expanduser('~/MeowPi-3/modes/bad_usb/bad_usb_scripts/'))
 bad_usb_scripts = os.listdir(os.path.join(os.path.dirname(__file__), 'modes/bad_usb/bad_usb_scripts/'))
 
 
