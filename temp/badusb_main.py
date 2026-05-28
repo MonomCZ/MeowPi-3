@@ -21,7 +21,7 @@ while True:
 
     ui.display_temperature()
 
-    if len(config.used_script) < 20:
+    if len(config.used_script) > 20:
         displayed_used_script = config.used_script[:20]
         mode_cut=True
     else:
