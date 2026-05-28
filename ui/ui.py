@@ -41,4 +41,4 @@ def display_temperature():
     output = str.replace(output, "temp=", "                                                ")
     output = str.replace(output, "'", "°")
     print(output)
-    ui.display_text(output, 0)
+    display_text(output, 0)
