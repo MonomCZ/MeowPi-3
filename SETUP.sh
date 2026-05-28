@@ -47,6 +47,8 @@ grep -qxF 'export TERM=xterm-256color' ~/.bashrc || echo 'export TERM=xterm-256c
 read -p "Do you want to enable gadget mode (this is required for badusb but any external USB devices like a keyboard won't work)? (y/n): " answer
 if [[ "$answer" == "y" ]]; then 
     echo "enabling gadget mode!"
+    echo 'external keyboards will NOT work'
+    sleep 2
     echo "dtoverlay=dwc2,dr_mode=peripheral" | sudo tee -a /boot/firmware/config.txt
     sudo sed -i 's/rootwait/rootwait modules-load=dwc2,g_hid/' /boot/firmware/cmdline.txt
  else
@@ -55,9 +57,8 @@ if [[ "$answer" == "y" ]]; then
     echo "bad usb mode will NOT work"
     echo "bad usb mode will NOT work"
     echo "bad usb mode will NOT work"
-    sleep 5
+    sleep 2
 fi
-
 
 
 sudo raspi-config nonint do_i2c 0
