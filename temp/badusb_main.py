@@ -38,10 +38,12 @@ while True:
     if gpio_input.button1():
         time.sleep(0.2)
         press=True
+        print("pressed")
         time.sleep(1)
         if gpio_input.button1():
             press=False
             hold=True
+            print("held")
     
     if press:
         print("pressed")
