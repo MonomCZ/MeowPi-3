@@ -20,12 +20,12 @@ draw = ImageDraw.Draw(image)
 
 def display_text(text,y):
 # ^ means next line
-    if "^" in text:
-        text.split("^")
-        for i in range(len(text.split("^"))):
-            draw.text((0, y + (i*10)), text.split("^")[i], fill=255)
+    
+    text.split("^")
+    for i in range(len(text.split("^"))):
+        draw.text((0, y + (i*10)), text.split("^")[i], fill=255)
 
-        str.replace(text, "^", "")
+    str.replace(text, "^", "")
 
     oled.image(image)
     oled.show()
