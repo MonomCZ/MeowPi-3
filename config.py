@@ -10,6 +10,7 @@ bad_usb_scripts = os.listdir(os.path.join(os.path.dirname(__file__), 'modes/bad_
 
 
 bad_usb_scripts.remove('__init__.py')
+bad_usb_scripts.remove('__pycache__')
 bad_usb_scripts = [f.replace('.py', '') for f in bad_usb_scripts]
 print(bad_usb_scripts)
 bad_usb_scripts_index = 0
