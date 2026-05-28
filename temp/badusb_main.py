@@ -16,15 +16,17 @@ ui.display_text("hold button to start", 20)
 ui.display_text("press to switch the mode", 40)
 
 ui.display_temperature()
+
 if not len(config.used_script) > 17:
     displayed_used_script = config.used_script[:17]
     mode_cut=True
 else:
     mode_cut=False
+    config.used_script = displayed_used_script
 
 displayed_used_script = config.used_script[:17]
 if mode_cut:
-    displayed_used_script.append("...")
+    displayed_used_script+="..."
 
 
-ui.display_text(config.used_script, 0)
+ui.display_text(displayed_used_script, 0)
