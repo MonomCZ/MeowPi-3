@@ -1,7 +1,7 @@
 import ui.ui as ui
 import time
 ui.clear()
-ui.display_text('123456789123456789', 0)
+ui.display_text('123456789123456789123456789', 0)
 
 
 # ui.display_text('Welcome to bad usb', 0)
