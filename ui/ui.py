@@ -34,3 +34,10 @@ def clear():
     draw.rectangle((0, 0, WIDTH, HEIGHT), outline=0, fill=0) 
     oled.image(image)
     oled.show()
+
+def display_temperature():
+    output = subprocess.check_output(["vcgencmd", "measure_temp"]).decode().strip()
+    output = str.replace(output, "temp=", "                                                ")
+    output = str.replace(output, "'", "°")
+    print(output)
+    ui.display_text(output, 0)
