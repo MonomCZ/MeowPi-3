@@ -3,6 +3,7 @@ import input.gpio_input as gpio_input
 import time
 import config as config
 import modes.bad_usb.bad_usb as bad_usb
+import os
 
 press=False
 hold=False
