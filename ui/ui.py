@@ -3,6 +3,7 @@ from PIL import Image, ImageDraw
 import board
 import busio
 import adafruit_ssd1306
+import subprocess
 
 
 WIDTH = 128

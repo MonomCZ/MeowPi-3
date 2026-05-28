@@ -1,6 +1,6 @@
 import ui.ui as ui
 import time
-import subprocess
+
 ui.clear()
 
 
