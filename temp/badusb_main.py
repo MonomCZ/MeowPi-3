@@ -46,6 +46,7 @@ while True:
             press=False
             hold=True
             print("held")
+            time.sleep(0.5)
     
     if press:
         print("pressed registered")
