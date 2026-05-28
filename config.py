@@ -6,6 +6,8 @@ input_mode='keyboard'
 #bad usb
 bad_usb_options = ['change_layout','change_script','start','stop']
 bad_usb_scripts = os.listdir(os.path.expanduser('~/MeowPi-3/modes/bad_usb/bad_usb_scripts/'))
+bad_usb_scripts.remove('__init__.py')
+bad_usb_scripts = [f.replace('.py', '') for f in bad_usb_scripts]
 print(bad_usb_scripts)
 used_script = ('notepad_message') #options : notepad_message , bee_movie_script
 used_layout = 'cz' #cz or us
