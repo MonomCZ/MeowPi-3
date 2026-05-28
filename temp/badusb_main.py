@@ -3,7 +3,8 @@ import input.gpio_input as gpio_input
 import time
 import config as config
 
-
+press=False
+hold=False
 
 ui.clear()
 
