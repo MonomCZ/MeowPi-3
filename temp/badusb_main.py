@@ -2,6 +2,7 @@ import ui.ui as ui
 import input.gpio_input as gpio_input
 import time
 import config as config
+import modes.bad_usb.bad_usb as bad_usb
 
 press=False
 hold=False
@@ -56,6 +57,18 @@ while True:
         print("pressed registered")
         config.bad_usb_scripts_index =(config.bad_usb_scripts_index+1) %len(config.bad_usb_scripts)
         config.used_script = config.bad_usb_scripts[config.bad_usb_scripts_index]
+    
+    if hold:
+            bad_usb.setup_gadget()
+            
+            import importlib
+            
+            scripts_dir=os.path.join(os.path.dirname(__file__), 'bad_usb_scripts')
+
+            module = importlib.import_module(f'modes.bad_usb.bad_usb_scripts.{config.used_script}')
+            
+            module.bad_usb.run()
+            print("bad usb running")
 
         
 
