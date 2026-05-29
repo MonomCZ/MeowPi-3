@@ -3,6 +3,8 @@
 <style>
   body
   {
+    margin: 0;
+    padding: 0;
     min-height: 100vh;
     background: #f0f4f8;
     font-family: 'DM Sans', sans-serif;
@@ -13,7 +15,7 @@
   
   header
   {
-    width: 100%;
+    width: 97%;
     background: #ffffff;
     border-bottom: 1px solid #e2e8f0;
     padding: 0 2rem;
@@ -42,11 +44,85 @@ main {
     font-size: 0.8125rem;
     color: #9ca3af;
   }
+
+
+
+
+  
+  .logo
+  {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: #1a5c2a;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: -0.02em;
+  }
+
+ .logo-dot {
+    width: 8px;
+    height: 8px;
+    background: #22c55e;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+    margin-left: 25px;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.8); }
+  }
+
+  .nav-links 
+    {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    }
+    
+   /* tlačitka */
+
+   .btn-onas
+   {
+     font-family: 'DM Sans', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+    background: transparent;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 7px 16px;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+  
+   }
+
+   .btn-onas:hover
+   {
+      background: #f9fafb;
+    border-color: #9ca3af;
+    color: #111827;
+   }
+
 </style>
 </head>
 
+<body>
+<header>
+  <div class="logo">
+    <div class="logo-dot"></div>
+    FREE WIFI.CZ
+  </div>
+ 
+  <nav class="nav-links">
+    <a href="https://www.wifimap.io/57-czech-republic"target="_blank" class="btn-onas">O nás</a>
+  </nav>
 
   
-
-  
-
+</header>
+</body>
