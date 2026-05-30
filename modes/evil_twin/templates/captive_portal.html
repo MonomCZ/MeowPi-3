@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <head>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
 <style>
   body
   {
@@ -67,7 +68,6 @@ main {
     background: #22c55e;
     border-radius: 50%;
     animation: pulse 2s infinite;
-    margin-left: 25px;
   }
 
   @keyframes pulse {
@@ -109,6 +109,24 @@ main {
     color: #111827;
    }
 
+   .btn-prihlaseni
+   {
+     font-family: 'DM Sans', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #ffffff;
+    background: #22c55e;
+    border: none;
+    border-radius: 8px;
+    padding: 7px 16px;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+   }
+
+
 </style>
 </head>
 
@@ -121,8 +139,13 @@ main {
  
   <nav class="nav-links">
     <a href="https://www.wifimap.io/57-czech-republic"target="_blank" class="btn-onas">O nás</a>
-  </nav>
 
-  
+    <a href="https://www.wifimap.io/57-czech-republic"target="_blank" class="btn-prihlaseni">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+      Přihlášení
+    </a>
+
+  </nav>
 </header>
 </body>
+
