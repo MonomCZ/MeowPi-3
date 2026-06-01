@@ -5,8 +5,10 @@ import os
 import time 
 import sys
 import subprocess
+import threading
 from flask import Flask, render_template
-from wifi_options import wifi_ssid
+from config import WIFI_PRESETS, ACTIVE_PRESET
+preset = WIFI_PRESETS[ACTIVE_PRESET]
 
 #For comands like stop procesess  -- "systemctl", "stop", "NetworkManager  
 def cmd(comand, ignore_error = False): # ignore_error so the script dont fail if we are trying to turn off a function that isnt even on
@@ -19,7 +21,7 @@ def cmd(comand, ignore_error = False): # ignore_error so the script dont fail if
 #Configruration
 IFACE = "wlan0"
 PORTAL_IP = "192.168.4.1"
-WIFI_SSID = wifi_ssid
+WIFI_SSID = preset["ssid"]
 
 
 #Step 1 stop all services
@@ -54,7 +56,7 @@ config_hostapd = textwrap.dedent (f"""\
      ignore_broadcast_ssid=0
 """)
 
-def configurating_hostap():
+def configurating_hostapd():
      os.makedirs("/etc/hostapd", exist_ok=True)
      with open("/etc/hostapd/hostapd.conf", "w") as f:
           f.write(config_hostapd)
@@ -75,7 +77,7 @@ def configurating_dnsmasq():
 
 def starting_services():
      #Useing definicions to configure.
-     configurating_hostap()
+     configurating_hostapd()
      configurating_dnsmasq()
      time.sleep(1)
      #Starting the servecises
@@ -89,11 +91,16 @@ def starting_services():
 
 def setup_iptables():
     print("Setting up iptables rules...")
-    # Cisteni predchozich pravidel nat tabulky
+    # This will clean the iptable
     cmd(["iptables", "-t", "nat", "-F"], ignore_error=True)
-    
+
+    #HTTP to port 80
     cmd(["iptables", "-t", "nat", "-A", "PREROUTING", "-i", IFACE,
          "-p", "tcp", "--dport", "80", "-j", "REDIRECT", "--to-port", "80"])
+     
+     #HTTPS to port 80
+    cmd(["iptables", "-t", "nat", "-A", "PREROUTING", "-i", IFACE,
+         "-p", "tcp", "--dport", "443", "-j", "REDIRECT", "--to-port", "80"])
 
 base_dir = os.path.dirname(os.path.abspath(__file__))
 app = Flask(__name__, template_folder=os.path.join(base_dir, "templates"))
@@ -101,11 +108,12 @@ app = Flask(__name__, template_folder=os.path.join(base_dir, "templates"))
 @app.route("/", defaults={"path": ""})
 @app.route("/<path:path>")
 def captive_portal(path):
-    return render_template("captive_portal.html")
+    return render_template(preset["portal"])
 
 def start_portal():
      print("Starting web server on port 80...")
-     app.run(host="0.0.0.0", port=80, threaded=True)
+     threading.Thread(target=lambda: app.run(host="0.0.0.0", port=80, threaded=True), daemon=True).start()
+
 
 def main():
     stoping_services()

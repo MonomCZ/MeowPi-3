@@ -60,7 +60,6 @@ if [[ "$answer" == "y" ]]; then
     sleep 2
 fi
 
-
 sudo raspi-config nonint do_i2c 0
 #giving perms for run files
 chmod +x ~/MeowPi-3/run_bad_usb.sh ~/MeowPi-3/run_evil_twin.sh

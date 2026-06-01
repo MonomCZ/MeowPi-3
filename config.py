@@ -18,13 +18,10 @@ used_script = ('notepad_message') #options : notepad_message , bee_movie_script
 used_layout = 'cz' #cz or us
 
 #evil twin
-wifi_ssid = "Free wifi"
+WIFI_PRESETS = {
 
-wifi_names = ["Free Wifi", "KFC Wifi", "McDonalds Wifi", "Starbucks Free"]
-#                   0           1           2                   3
-captive_portal_names = ["Free Wifi.html", "KFC Wifi.html", "McDonalds Wifi.html", "Starbucks Free.html"]
-#                             0               1                2                         3
-#TODO: ADD presets for wifi names and captive portals -vojta
-
-#TODO: ADD to UI option to change wifi name and captive portal EATHER FROM PRESETS OR CUSTOM -vojta
-evil_twin_options = ['change ssid', 'start evil twin', 'stop evil twin']
+    "PRESET: FREE WIFI": { "ssid": "Free Wifi", "portal": "free_wifi.html" },
+    "PRESET: STARBUCKS WIFI": { "ssid": "Starbucks WiFi", "portal": "starbucks_wifi.html" },
+    #TODO: add more presets
+}
+ACTIVE_PRESET = "PRESET: FREE WIFI"
