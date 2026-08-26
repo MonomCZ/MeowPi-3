@@ -1,3 +1,6 @@
+Rewritten version from scratch:
+https://github.com/MonomCZ/MeowPiFour
+
 # MeowPi-3
 ## on a clean install of **rpi os 32bit lite** Install with:
 ```
